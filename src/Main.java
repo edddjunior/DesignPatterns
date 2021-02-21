@@ -1,20 +1,19 @@
 import java.math.BigDecimal;
 
 import br.com.imposto.CalculadoraDeImpostos;
-import br.com.imposto.ICMS;
+import br.com.imposto.ISS;
 import br.com.orcamento.Orcamento;
 import desconto.CalculadoraDeDesconto;
 
-public class TestesImpostos {
+public class Main {
 	
 	public static void main(String[] args) {
-		Orcamento orcamento = new Orcamento(new BigDecimal("100"), 1);
+		Orcamento orcamento = new Orcamento(new BigDecimal("600"), 1);
 		
 		CalculadoraDeImpostos calcImpostos = new CalculadoraDeImpostos();
-		System.out.println(calcImpostos.calcular(orcamento, new ICMS()));
+		System.out.println("impostos: " + calcImpostos.calcular(orcamento, new ISS()));
 		
 		CalculadoraDeDesconto calcDesconto = new CalculadoraDeDesconto();
-		System.out.println(calcDesconto.calcular(orcamento));
-
+		System.out.println("desconto: " + calcDesconto.calcular(orcamento));
 	}
 }

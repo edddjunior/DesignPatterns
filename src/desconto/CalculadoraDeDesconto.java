@@ -7,16 +7,15 @@ import br.com.orcamento.Orcamento;
 public class CalculadoraDeDesconto {
 	
 	public BigDecimal calcular(Orcamento orcamento) {
+		Desconto descontoMaisDeCincoItens = new DescontoMaisDeCincoItens();
+		Desconto descontoValorMaiorQueQuinhentos = new DescontoValorMaiorQueQuinhentos();
+		Desconto semDesconto = new SemDesconto();
 		
-		if (orcamento.getQuantidadeItens() > 5) {
-			return orcamento.getValor().multiply(new BigDecimal("0.1"));
-		}
+		descontoMaisDeCincoItens.setProximo(descontoValorMaiorQueQuinhentos);
+		descontoValorMaiorQueQuinhentos.setProximo(semDesconto);
 		
-		if (orcamento.getValor().compareTo(new BigDecimal("500")) > 0) {
-			return orcamento.getValor().multiply(new BigDecimal("0.1"));
-		}
-		
-		return BigDecimal.ZERO;
+		return descontoMaisDeCincoItens.calcular(orcamento);
 	}
 
 }
+ 
