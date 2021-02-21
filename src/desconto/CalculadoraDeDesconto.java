@@ -16,6 +16,5 @@ public class CalculadoraDeDesconto {
 		
 		return descontoMaisDeCincoItens.calcular(orcamento);
 	}
-
 }
  
