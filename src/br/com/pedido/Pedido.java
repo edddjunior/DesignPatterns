@@ -1,13 +1,14 @@
-package br.com.orcamento;
+package br.com.pedido;
 
 import java.math.BigDecimal;
 
-public class Orcamento {
+public class Pedido {
 
 	private BigDecimal valor;
 	private int quantidadeItens;
+	private String cupomDescontoCod;
 
-	public Orcamento(BigDecimal valor, int quantidadeItens) {
+	public Pedido(BigDecimal valor, int quantidadeItens) {
 		super();
 		this.valor = valor;
 		this.quantidadeItens = quantidadeItens;
@@ -28,5 +29,13 @@ public class Orcamento {
 
 	public void setQuantidadeItens(int quantidadeItens) {
 		this.quantidadeItens = quantidadeItens;
+	}
+	
+	public String getCupomDescontoCod() {
+		return cupomDescontoCod;
+	}
+	
+	public void setCupomDescontoCod(String cupomDescontoCod) {
+		this.cupomDescontoCod = cupomDescontoCod;
 	}
 }

@@ -1,24 +1,24 @@
-package desconto;
+package br.com.desconto;
 
 import java.math.BigDecimal;
 
-import br.com.orcamento.Orcamento;
+import br.com.pedido.Pedido;
 
-public class DescontoValorMaiorQueQuinhentos implements Desconto {
+public class DescontoValorMaiorQueQuinhentos implements IDesconto {
 
-	private Desconto proximo;
+	private IDesconto proximo;
 
 	@Override
-	public void setProximo(Desconto proximo) {
+	public void setProximo(IDesconto proximo) {
 		this.proximo = proximo;
 	}
 
 	@Override
-	public BigDecimal calcular(Orcamento orcamento) {
-		if (orcamento.getValor().compareTo(new BigDecimal("500")) > 0) {
-			return orcamento.getValor().multiply(new BigDecimal("0.05"));
+	public BigDecimal calcular(Pedido pedido) {
+		if (pedido.getValor().compareTo(new BigDecimal("500")) > 0) {
+			return pedido.getValor().multiply(new BigDecimal("0.05"));
 		}
 		
-		return proximo.calcular(orcamento);
+		return proximo.calcular(pedido);
 	}
 }

@@ -2,11 +2,11 @@ package br.com.imposto;
 
 import java.math.BigDecimal;
 
-import br.com.orcamento.Orcamento;
+import br.com.pedido.Pedido;
 
 public class ISS implements Imposto {
 
-	public BigDecimal calcular(Orcamento orcamento) {
+	public BigDecimal calcular(Pedido orcamento) {
 		return orcamento.getValor().multiply(new BigDecimal("0.06"));
 	}
 }

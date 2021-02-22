@@ -1,17 +1,17 @@
-package desconto;
+package br.com.desconto;
 
 import java.math.BigDecimal;
 
-import br.com.orcamento.Orcamento;
+import br.com.pedido.Pedido;
 
-public class SemDesconto implements Desconto{
+public class SemDesconto implements IDesconto{
 
 	@Override
-	public void setProximo(Desconto proximo) {
+	public void setProximo(IDesconto proximo) {
 	}
 	
 	@Override
-	public BigDecimal calcular(Orcamento orcamento) {
+	public BigDecimal calcular(Pedido orcamento) {
 		return BigDecimal.ZERO;
 	}
 }
